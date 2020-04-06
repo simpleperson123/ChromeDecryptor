@@ -10,6 +10,8 @@ using System.Security.Cryptography;
 using Org.BouncyCastle.Crypto.Engines;
 using Org.BouncyCastle.Crypto.Modes;
 using Org.BouncyCastle.Crypto.Parameters;
+using System.Diagnostics;
+
 
 namespace ChromeDecryptorV2
 {
@@ -23,6 +25,14 @@ namespace ChromeDecryptorV2
 	{
 		static void Main(string[] args)
 		{
+			Process[] processlist = Process.GetProcessesByName("chrome");
+			if(processlist.Length != 0)
+			{
+				Console.WriteLine("Chrome is running! You must close chrome to decrypt the data!");
+				Console.ReadKey();
+				return;
+			}
+
 			string localappdata = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 			string LoginDataPath = localappdata + "\\Google\\Chrome\\User Data\\Default\\Login Data";
 
