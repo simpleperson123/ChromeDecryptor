@@ -8,5 +8,5 @@ This tool was built with these open source libraries:
 
 **System.Data.SQLite**\
 **Newtonsoft.Json**\
-**BouncyCastle.Crypto**\
+**BouncyCastle.Crypto**
 
