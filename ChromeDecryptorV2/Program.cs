@@ -64,11 +64,10 @@ namespace ChromeDecryptorV2
 				}
 				else
 				{
-					byte[] encryptedDataDPAPI = (byte[])reader["password_value"];
 					string password;
 					try
 					{
-					    password = Encoding.UTF8.GetString(ProtectedData.Unprotect(encryptedDataDPAPI, null, DataProtectionScope.CurrentUser));
+					    password = Encoding.UTF8.GetString(ProtectedData.Unprotect(encryptedData, null, DataProtectionScope.CurrentUser));
 					}
 					catch
 					{
